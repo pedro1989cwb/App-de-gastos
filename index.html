@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Meus Gastos</title>
+<meta name="theme-color" content="#FAF9F6">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="receipt">
+  <div class="perf perf-top"></div>
+
+  <header class="receipt-head">
+    <h1>RECIBO DE GASTOS</h1>
+    <p class="subtitle">controle pessoal &middot; trabalho</p>
+    <div class="dashes"></div>
+  </header>
+
+  <section class="totals">
+    <div class="total-row">
+      <span>MÊS</span>
+      <select id="monthFilter"></select>
+    </div>
+    <div class="total-row total-main">
+      <span>TOTAL DO MÊS</span>
+      <span id="totalMonth">R$ 0,00</span>
+    </div>
+    <div class="total-row total-sub">
+      <span>TOTAL GERAL</span>
+      <span id="totalAll">R$ 0,00</span>
+    </div>
+  </section>
+
+  <div class="dashes"></div>
+
+  <section class="entries" id="entries">
+    <!-- itens injetados via JS -->
+  </section>
+
+  <p class="empty-msg" id="emptyMsg">Nenhum gasto registrado ainda.</p>
+
+  <div class="dashes"></div>
+
+  <section class="add-form">
+    <h2>+ NOVO ITEM</h2>
+    <form id="expenseForm">
+      <label>
+        Data
+        <input type="date" id="date" required>
+      </label>
+      <label>
+        Categoria
+        <select id="category" required>
+          <option value="Alimentação">Alimentação</option>
+          <option value="Transporte">Transporte</option>
+          <option value="Materiais">Materiais</option>
+          <option value="Hospedagem">Hospedagem</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </label>
+      <label>
+        Descrição
+        <input type="text" id="description" placeholder="ex: táxi até o cliente" required>
+      </label>
+      <label>
+        Valor (R$)
+        <input type="number" id="value" step="0.01" min="0" placeholder="0,00" required>
+      </label>
+      <button type="submit">Adicionar ao recibo</button>
+    </form>
+  </section>
+
+  <div class="dashes"></div>
+
+  <button id="exportBtn" class="export-btn">Exportar planilha (CSV)</button>
+
+  <div class="perf perf-bottom"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
